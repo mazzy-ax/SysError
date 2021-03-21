@@ -1,0 +1,71 @@
+﻿Exportfile for AOT version 1.0 or later
+Formatversion: 1
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: Error unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #Error
+    PROPERTIES
+      Name                #Error
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #unsupportedEmptyString
+        #// в качестве описания можно использовать название переменной
+        #public static LabelType unsupportedEmptyString(str _funcName, anytype _description = '')
+        #{
+        #    LabelType ret = strfmt("unsupported empty string in %1 %2", _funcName, _description);
+        #
+        #    return ret;
+        #}
+      ENDSOURCE
+      SOURCE #unsupportedEnum
+        #public static LabelType unsupportedEnum(str _funcName, anytype _enumValue = '')
+        #{
+        #    LabelType ret = strfmt("Unsupported enum <%1> in %2", _enumValue, _funcName);
+        #
+        #    return ret;
+        #}
+      ENDSOURCE
+      SOURCE #unsupportedNull
+        #// в качестве описания можно использовать название переменной
+        #public static LabelType unsupportedNull(str _funcName, anytype _description = '')
+        #{
+        #    LabelType ret = strfmt("unsupported Null in %1 %2", _funcName, _description);
+        #
+        #    return ret;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: PRN
+
+; Microsoft Dynamics AX Project : SysError unloaded
+; --------------------------------------------------------------------------------
+  PROJECTVERSION 2
+  
+  PROJECT #SysError
+   SHARED
+  PROPERTIES
+    Name                #SysError
+  ENDPROPERTIES
+  
+    PROJECTCLASS ProjectNode
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 45
+      UTILOBJECTID 123
+      NODETYPE 329
+      NAME #Error
+    ENDNODE
+  ENDPROJECT
+  
+
+***Element: END
